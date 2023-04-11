@@ -3,31 +3,27 @@
 #include <stdlib.h>
 
 /**
- * main - entry point of the program
- * @argc: the number of command line arguments
- * @argv: an array of pointers to the command line arguments
- *
- * Return: 0 if successful, 1 if there is an error
- */
+  * main - Prints the multiplication of two args numbers
+  * @argc: argument count
+  * @argv: argument vector
+  *
+  * Return: Always zero
+  */
 int main(int argc, char *argv[])
 {
-    int num1, num2, result;
+	int n1 = 0, n2 = 0;
 
-    /* Check that the program was called with two arguments */
-    if (argc != 3) {
-        printf("Error\n");
-        return 1;
-    }
+	if (argc == 3)
+	{
+		n1 = atoi(argv[1]);
+		n2 = atoi(argv[2]);
+		printf("%d\n", n1 * n2);
+	}
+	else
+	{
+		printf("Error\n");
+		return (1);
+	}
 
-    /* Convert the command line arguments to integers */
-    num1 = atoi(argv[1]);
-    num2 = atoi(argv[2]);
-
-    /* Perform the multiplication */
-    result = num1 * num2;
-
-    /* Print the result */
-    printf("%d\n", result);
-
-    return 0;
+	return (0);
 }

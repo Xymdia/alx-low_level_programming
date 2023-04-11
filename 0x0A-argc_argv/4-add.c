@@ -1,41 +1,46 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
+#include <string.h>
 
 /**
- * main - entry point of the program
- *
- * @argc: the number of arguments passed to the program
- * @argv: an array of strings containing the arguments
- *
- * Return: 0 if successful, 1 otherwise
- */
-
+  * main - Prints the sum of args positive numbers
+  * @argc: argument count
+  * @argv: argument vector
+  *
+  * Return: Always zero
+  */
 int main(int argc, char *argv[])
 {
-    int sum = 0;
+	int i;
+	unsigned int k, sum = 0;
+	char *e;
 
-    if (argc == 1)
-    {
-        printf("0\n");
-        return 0;
-    }
+	if (argc > 1)
+	{
+		for (i = 1; i < argc; i++)
+		{
+			e = argv[i];
 
-    for (int i = 1; i < argc; i++)
-    {
-        for (int j = 0; argv[i][j] != '\0'; j++)
-        {
-            if (!isdigit(argv[i][j]))
-            {
-                printf("Error\n");
-                return 1;
-            }
-        }
+			for (k = 0; k < strlen(e); k++)
+			{
+				if (e[k] < 48 || e[k] > 57)
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
 
-        sum += atoi(argv[i]);
-    }
+			sum += atoi(e);
+			e++;
+		}
 
-    printf("%d\n", sum);
-    return 0;
+		printf("%d\n", sum);
+	}
+	else
+	{
+		printf("0\n");
+	}
+
+	return (0);
 }
